@@ -1,5 +1,6 @@
-import { Fragment } from "react";
+import { Button } from "@mui/material";
 import { Product } from "../../app/models/product";
+import ProductList from "./ProductList";
 
 interface Props {
     products: Product[];
@@ -9,12 +10,8 @@ interface Props {
 export default function Catalog({products, addProduct}: Props){
     return(
         <>
-            <ul>
-                {products.map((product) => (
-                <li key={product.id}>{product.name} - {product.price}</li>
-                ))}
-            </ul>
-            <button onClick={addProduct}>Add product</button>
+            <ProductList products={products} />
+            <Button variant='contained' onClick={addProduct}>Add product</Button>
         </>
         
     )
